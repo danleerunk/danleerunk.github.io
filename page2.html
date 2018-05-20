@@ -1,25 +1,20 @@
 <head>
-        <script type="text/javascript">
-            (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-            (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-            })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-            
-            // First Engine
-            _st('install','zCt8yoK1-KsRqrc-fUfq','2.0.0');
-            // Second Engine 
-            _st('install','zCt8yoK1-KsRqrc-fUfq','2.0.0', {
-                install: {
-                    hooks: {
-                        query_filter: function(query) {
-                            query.setFilterDataByDocumentTypeSlugAndFilterField('page', 'language', { values: ['en'], type: "and" });
- 
-                            return query;
-                        }
-                    }
-                }
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type='text/javascript' src='jquery.ba-hashchange.min.js'></script>
+        <script type="text/javascript" src="jquery.swiftype.search.js"></script>
+        <link type="text/css" rel="stylesheet" href="search.css" media="all" />
+    
+        <script>
+            $('#st1').swiftypeSearch({
+                resultContainingElement: '#st-results-container',
+                engineKey: 'zCt8yoK1-KsRqrc-fUfq'
             });
-          </script>
+            $('#st2').swiftypeSearch({
+                resultContainingElement: '#st-results-container',
+                filters: {'language': 'en'},
+                engineKey: 'zCt8yoK1-KsRqrc-fUfq'
+            });
+        </script>
 </head>
 <body>
         <div> 
@@ -28,8 +23,8 @@
                 <a href="https://danleerunk.github.io/page2.html">Page2</a>
         </div>
         <div>
-                <input type="text" class="st-default-search-input">
-                <input id="2" type="text" class="st-default-search-input">
+                <input id="st1" type="text" placeholder="st1 search">
+                <input id="st2" type="text" placeholder="st2 search">
         </div>
     Here is some text on this Generic page. It is generic, you see.
 </body>
